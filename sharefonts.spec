@@ -5,8 +5,6 @@ Version:	0.10
 Release:	11
 License:	shareware
 Group:		X11/Fonts
-Group(de):	X11/Fonts
-Group(pl):	X11/Fonty
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
 Source1:	%{name}.Fontmap
 Prereq:		textutils
