@@ -14,8 +14,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_t1fontsdir	%{_fontsdir}/Type1
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 This is a collection of 21 fonts from the CICA archives that are
