@@ -14,20 +14,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_t1fontsdir	%{_fontsdir}/Type1
 
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+
 %description
-This is a collection of 21 fonts from the CICA archives that are shareware.
-NOTICE: They are not free. You have to pay a fee for constant use. They are
-licensed by the authors not by me. Read the <font>.shareware notices for
-each font to find out how to license them. I have just collected them and
-put them into a usable format for X11. The collection was motivated by the
-lack of good fonts for Linux especially X11 and ghostscript. Scaled bitmaps
-look really ugly!
+This is a collection of 21 fonts from the CICA archives that are
+shareware. NOTICE: They are not free. You have to pay a fee for
+constant use. They are licensed by the authors not by me. Read the
+<font>.shareware notices for each font to find out how to license
+them. I have just collected them and put them into a usable format for
+X11. The collection was motivated by the lack of good fonts for Linux
+especially X11 and ghostscript. Scaled bitmaps look really ugly!
 
 %description -l pl
-To jest kolekcja 21 shareware'owych czcionek, pochodz±cych z archiwów CICA. 
-UWAGA: Nie s± one za darmo. Musisz ui¶ciæ op³atê je¶li chcesz ich u¿ywaæ
-d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z informacjami w plikach 
-<czcionka>.shareware, by dowiedzieæ siê, jak zdobyæ licencjê na ich u¿ywanie.
+To jest kolekcja 21 shareware'owych czcionek, pochodz±cych z archiwów
+CICA. UWAGA: Nie s± one za darmo. Musisz ui¶ciæ op³atê je¶li chcesz
+ich u¿ywaæ d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z
+informacjami w plikach <czcionka>.shareware, by dowiedzieæ siê, jak
+zdobyæ licencjê na ich u¿ywanie.
 
 %prep
 %setup -q -n sharefont
