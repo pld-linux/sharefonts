@@ -3,7 +3,7 @@ Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuxa
 Name:		sharefonts
 Version:	0.10
 Release:	11
-Copyright:	shareware
+License:	shareware
 Group:		X11/Fonts
 Group(de):	X11/Fonts
 Group(pl):	X11/Fonty
