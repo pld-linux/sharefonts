@@ -2,14 +2,14 @@ Summary:	Collection of SHAREWARE ATM Fonts for Linux
 Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuksa
 Name:		sharefonts
 Version:	0.10
-Release:	12
+Release:	13
 License:	Shareware
 Group:		X11/Fonts
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
 # Source0-md5:	fd407f15efc7f06e320c10fd73d66c1f
 Source1:	%{name}.Fontmap
-Requires(post,postun):	fileutils
-Requires(post,postun):	textutils
+Requires(post,postun):	fontpostinst
+Requires:	%{_fontsdir}/Type1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,26 +45,10 @@ tail -n +2 fonts.dir > $RPM_BUILD_ROOT%{_t1fontsdir}/fonts.scale.%{name}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-cd %{_t1fontsdir}
-rm -f fonts.scale.bak Fontmap.bak
-cat fonts.scale.* | sort -u > fonts.scale.tmp
-cat fonts.scale.tmp | wc -l | tr -d ' ' > fonts.scale
-cat fonts.scale.tmp >> fonts.scale
-rm -f fonts.scale.tmp
-ln -sf fonts.scale fonts.dir
-cat Fontmap.* > Fontmap
+fontpostinst Type1
 
 %postun
-umask 022
-cd %{_t1fontsdir}
-rm -f fonts.scale.bak Fontmap.bak
-cat fonts.scale.* 2>/dev/null | sort -u > fonts.scale.tmp
-cat fonts.scale.tmp | wc -l | tr -d ' ' > fonts.scale
-cat fonts.scale.tmp >> fonts.scale
-rm -f fonts.scale.tmp
-ln -sf fonts.scale fonts.dir
-cat Fontmap.* > Fontmap 2>/dev/null
+fontpostinst Type1
 
 %files
 %defattr(644,root,root,755)
