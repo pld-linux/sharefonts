@@ -4,7 +4,7 @@ Name:		sharefonts
 Version:	0.10
 Release:	13
 License:	Shareware
-Group:		X11/Fonts
+Group:		Fonts
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
 # Source0-md5:	fd407f15efc7f06e320c10fd73d66c1f
 Source1:	%{name}.Fontmap
