@@ -1,13 +1,15 @@
 Summary:	Collection of SHAREWARE ATM Fonts for Linux
+Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuxa
 Name:		sharefonts
 Version:	0.10
 Release:	11
 Copyright:	shareware
-BuildArchitectures: noarch
-Group:		X11/fonts
+Group:		X11/Fonts
+Group(pl):	X11/Fonty
 Source:		ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
 Requires:	type1inst >= 0.6.1
 Prereq:		type1inst
+BuildArch:	noarch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_fontdir	/usr/share/fonts
@@ -21,13 +23,19 @@ put them into a usable format for X11. The collection was motivated by the
 lack of good fonts for Linux especially X11 and ghostscript. Scaled bitmaps
 look really ugly!
 
+%description -l pl
+To jest kolekcja 22 shareware'owych czcionek, pochodz±cych z archiwów CICA. 
+UWAGA: Nie s± one za darmo. Musisz ui¶ciæ op³atê je¶li chcesz ich u¿ywaæ
+d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z informacjami w plikach 
+<czcionka>.shareware, by dowiedzieæ siê, jak zdobyæ licencjê na ich u¿ywanie.
+
 %prep
 %setup -q -n sharefont
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/%{_fontdir}/Type1
-install *.pfb $RPM_BUILD_ROOT/%{_fontdir}/Type1
+install -d $RPM_BUILD_ROOT%{_fontdir}/Type1
+install *.pfb $RPM_BUILD_ROOT%{_fontdir}/Type1
 
 gzip -9nf README *.shareware
 
