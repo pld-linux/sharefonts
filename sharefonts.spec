@@ -1,5 +1,5 @@
 Summary:	Collection of SHAREWARE ATM Fonts for Linux
-Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuxa
+Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuksa
 Name:		sharefonts
 Version:	0.10
 Release:	11
