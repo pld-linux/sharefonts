@@ -2,8 +2,8 @@ Summary:	Collection of SHAREWARE ATM Fonts for Linux
 Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuksa
 Name:		sharefonts
 Version:	0.10
-Release:	11
-License:	shareware
+Release:	12
+License:	Shareware
 Group:		X11/Fonts
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
 Source1:	%{name}.Fontmap
@@ -43,8 +43,6 @@ install *.pfb $RPM_BUILD_ROOT%{_t1fontsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_t1fontsdir}/Fontmap.%{name}
 tail -n +2 fonts.dir > $RPM_BUILD_ROOT%{_t1fontsdir}/fonts.scale.%{name}
 
-gzip -9nf README *.shareware
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -70,5 +68,5 @@ cat Fontmap.* > Fontmap 2>/dev/null
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz *.shareware.gz
+%doc README *.shareware
 %{_t1fontsdir}/*
