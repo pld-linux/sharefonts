@@ -5,17 +5,18 @@ Version:	0.10
 Release:	11
 Copyright:	shareware
 Group:		X11/Fonts
+Group(de):	X11/Fonts
 Group(pl):	X11/Fonty
-Source:		ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
-Requires:	type1inst >= 0.6.1
-Prereq:		type1inst
+Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/fonts/%{name}-%{version}.tar.gz
+Source1:	%{name}.Fontmap
+Prereq:		textutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_fontdir	/usr/share/fonts
+%define		_t1fontsdir	%{_fontsdir}/Type1
 
 %description
-This is a collection of 22 fonts from the CICA archives that are shareware.
+This is a collection of 21 fonts from the CICA archives that are shareware.
 NOTICE: They are not free. You have to pay a fee for constant use. They are
 licensed by the authors not by me. Read the <font>.shareware notices for
 each font to find out how to license them. I have just collected them and
@@ -24,7 +25,7 @@ lack of good fonts for Linux especially X11 and ghostscript. Scaled bitmaps
 look really ugly!
 
 %description -l pl
-To jest kolekcja 22 shareware'owych czcionek, pochodz±cych z archiwów CICA. 
+To jest kolekcja 21 shareware'owych czcionek, pochodz±cych z archiwów CICA. 
 UWAGA: Nie s± one za darmo. Musisz ui¶ciæ op³atê je¶li chcesz ich u¿ywaæ
 d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z informacjami w plikach 
 <czcionka>.shareware, by dowiedzieæ siê, jak zdobyæ licencjê na ich u¿ywanie.
@@ -34,8 +35,10 @@ d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z informacjami w plikach
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_fontdir}/Type1
-install *.pfb $RPM_BUILD_ROOT%{_fontdir}/Type1
+install -d $RPM_BUILD_ROOT%{_t1fontsdir}
+install *.pfb $RPM_BUILD_ROOT%{_t1fontsdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_t1fontsdir}/Fontmap.%{name}
+tail -n +2 fonts.dir > $RPM_BUILD_ROOT%{_t1fontsdir}/fonts.scale.%{name}
 
 gzip -9nf README *.shareware
 
@@ -43,14 +46,24 @@ gzip -9nf README *.shareware
 rm -rf $RPM_BUILD_ROOT
 
 %post
-cd %{_fontdir}/Type1
-type1inst -nogs -quiet
+cd %{_t1fontsdir}
+cat fonts.scale.* | sort -u > fonts.scale.tmp
+wc -l fonts.scale.tmp > fonts.scale
+cat fonts.scale.tmp >> fonts.scale
+rm -f fonts.scale.tmp
+ln -sf fonts.scale fonts.dir
+cat Fontmap.* > Fontmap
 
 %postun
-cd %{_fontdir}/Type1
-type1inst -nogs -quiet
+cd %{_t1fontsdir}
+cat fonts.scale.* 2>/dev/null | sort -u > fonts.scale.tmp
+wc -l fonts.scale.tmp > fonts.scale
+cat fonts.scale.tmp >> fonts.scale
+rm -f fonts.scale.tmp
+ln -sf fonts.scale fonts.dir
+cat Fontmap.* > Fontmap 2>/dev/null
 
 %files
 %defattr(644,root,root,755)
 %doc README.gz *.shareware.gz
-%{_fontdir}/Type1/*.pfb
+%{_t1fontsdir}/*
