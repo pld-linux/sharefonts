@@ -39,7 +39,7 @@ cd /usr/X11R6/lib/X11/fonts/Type1
 type1inst -nogs -quiet
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc README *.shareware
 /usr/X11R6/lib/X11/fonts/Type1/*.pfb
 
