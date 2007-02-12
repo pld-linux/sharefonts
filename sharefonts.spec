@@ -1,5 +1,5 @@
 Summary:	Collection of SHAREWARE ATM Fonts for Linux
-Summary(pl):	Kolekcja czcionek SHAREWARE ATM dla Linuksa
+Summary(pl.UTF-8):   Kolekcja czcionek SHAREWARE ATM dla Linuksa
 Name:		sharefonts
 Version:	0.10
 Release:	13
@@ -24,12 +24,12 @@ them. I have just collected them and put them into a usable format for
 X11. The collection was motivated by the lack of good fonts for Linux
 especially X11 and ghostscript. Scaled bitmaps look really ugly!
 
-%description -l pl
-To jest kolekcja 21 shareware'owych czcionek, pochodz±cych z archiwów
-CICA. UWAGA: Nie s± one za darmo. Musisz ui¶ciæ op³atê je¶li chcesz
-ich u¿ywaæ d³u¿ej, ni¿ to przewiduje ich status. Zapoznaj siê z
-informacjami w plikach <czcionka>.shareware, by dowiedzieæ siê, jak
-zdobyæ licencjê na ich u¿ywanie.
+%description -l pl.UTF-8
+To jest kolekcja 21 shareware'owych czcionek, pochodzÄ…cych z archiwÃ³w
+CICA. UWAGA: Nie sÄ… one za darmo. Musisz uiÅ›ciÄ‡ opÅ‚atÄ™ jeÅ›li chcesz
+ich uÅ¼ywaÄ‡ dÅ‚uÅ¼ej, niÅ¼ to przewiduje ich status. Zapoznaj siÄ™ z
+informacjami w plikach <czcionka>.shareware, by dowiedzieÄ‡ siÄ™, jak
+zdobyÄ‡ licencjÄ™ na ich uÅ¼ywanie.
 
 %prep
 %setup -q -n sharefont
